@@ -1,0 +1,286 @@
+fileFormatVersion: 2
+guid: ac40e35b7fa25ae46a1635cfc6638fcf
+timeCreated: 1508279166
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: bottom
+    100002: bottom 1
+    100004: Ext
+    100006: fin_1
+    100008: fin_1 1
+    100010: fin_2
+    100012: fin_2 1
+    100014: fin_3
+    100016: fin_3 1
+    100018: fin_4
+    100020: fin_4 1
+    100022: Fins_Front
+    100024: Fins_Tail
+    100026: Guts
+    100028: guts_1
+    100030: guts_1_2
+    100032: guts_1_3_1
+    100034: guts_2
+    100036: guts_2_1
+    100038: guts_2_10
+    100040: guts_2_11
+    100042: guts_2_2
+    100044: guts_2_3
+    100046: guts_2_4
+    100048: guts_2_6
+    100050: guts_2_7
+    100052: guts_2_9
+    100054: guts_3
+    100056: guts_3_1
+    100058: guts_3_2
+    100060: guts_3_3
+    100062: guts_3_4
+    100064: guts_4
+    100066: guts_4_1
+    100068: guts_4_3
+    100070: guts_4_4
+    100072: guts_4_5
+    100074: guts_4_6
+    100076: guts_5
+    100078: guts_5_1
+    100080: guts_5_2
+    100082: //RootNode
+    100084: nose
+    100086: pSphere1
+    100088: Shell
+    100090: Shell_Back
+    100092: Shell_Front
+    100094: top
+    100096: top 1
+    400000: bottom
+    400002: bottom 1
+    400004: Ext
+    400006: fin_1
+    400008: fin_1 1
+    400010: fin_2
+    400012: fin_2 1
+    400014: fin_3
+    400016: fin_3 1
+    400018: fin_4
+    400020: fin_4 1
+    400022: Fins_Front
+    400024: Fins_Tail
+    400026: Guts
+    400028: guts_1
+    400030: guts_1_2
+    400032: guts_1_3_1
+    400034: guts_2
+    400036: guts_2_1
+    400038: guts_2_10
+    400040: guts_2_11
+    400042: guts_2_2
+    400044: guts_2_3
+    400046: guts_2_4
+    400048: guts_2_6
+    400050: guts_2_7
+    400052: guts_2_9
+    400054: guts_3
+    400056: guts_3_1
+    400058: guts_3_2
+    400060: guts_3_3
+    400062: guts_3_4
+    400064: guts_4
+    400066: guts_4_1
+    400068: guts_4_3
+    400070: guts_4_4
+    400072: guts_4_5
+    400074: guts_4_6
+    400076: guts_5
+    400078: guts_5_1
+    400080: guts_5_2
+    400082: //RootNode
+    400084: nose
+    400086: pSphere1
+    400088: Shell
+    400090: Shell_Back
+    400092: Shell_Front
+    400094: top
+    400096: top 1
+    2300000: bottom
+    2300002: bottom 1
+    2300004: fin_1
+    2300006: fin_1 1
+    2300008: fin_2
+    2300010: fin_2 1
+    2300012: fin_3
+    2300014: fin_3 1
+    2300016: fin_4
+    2300018: fin_4 1
+    2300020: guts_1_2
+    2300022: guts_1_3_1
+    2300024: guts_2_1
+    2300026: guts_2_10
+    2300028: guts_2_2
+    2300030: guts_2_3
+    2300032: guts_2_4
+    2300034: guts_2_6
+    2300036: guts_2_7
+    2300038: guts_2_9
+    2300040: guts_3_1
+    2300042: guts_3_2
+    2300044: guts_3_3
+    2300046: guts_3_4
+    2300048: guts_4_1
+    2300050: guts_4_3
+    2300052: guts_4_4
+    2300054: guts_4_5
+    2300056: guts_4_6
+    2300058: guts_5_1
+    2300060: guts_5_2
+    2300062: nose
+    2300064: pSphere1
+    2300066: top
+    2300068: top 1
+    3300000: bottom
+    3300002: bottom 1
+    3300004: fin_1
+    3300006: fin_1 1
+    3300008: fin_2
+    3300010: fin_2 1
+    3300012: fin_3
+    3300014: fin_3 1
+    3300016: fin_4
+    3300018: fin_4 1
+    3300020: guts_1_2
+    3300022: guts_1_3_1
+    3300024: guts_2_1
+    3300026: guts_2_10
+    3300028: guts_2_2
+    3300030: guts_2_3
+    3300032: guts_2_4
+    3300034: guts_2_6
+    3300036: guts_2_7
+    3300038: guts_2_9
+    3300040: guts_3_1
+    3300042: guts_3_2
+    3300044: guts_3_3
+    3300046: guts_3_4
+    3300048: guts_4_1
+    3300050: guts_4_3
+    3300052: guts_4_4
+    3300054: guts_4_5
+    3300056: guts_4_6
+    3300058: guts_5_1
+    3300060: guts_5_2
+    3300062: nose
+    3300064: pSphere1
+    3300066: top
+    3300068: top 1
+    4300000: guts_1_2
+    4300002: guts_1_3_1
+    4300004: guts_2_1
+    4300006: guts_2_2
+    4300008: guts_2_3
+    4300010: guts_2_4
+    4300012: guts_2_6
+    4300014: guts_2_7
+    4300016: guts_2_9
+    4300018: guts_2_10
+    4300020: guts_3_1
+    4300022: guts_3_2
+    4300024: guts_3_3
+    4300026: guts_3_4
+    4300028: guts_4_1
+    4300030: guts_4_3
+    4300032: guts_4_4
+    4300034: guts_4_5
+    4300036: guts_4_6
+    4300038: pSphere1
+    4300040: guts_5_1
+    4300042: guts_5_2
+    4300044: nose
+    4300046: top
+    4300048: bottom
+    4300050: top
+    4300052: bottom
+    4300054: fin_1
+    4300056: fin_2
+    4300058: fin_3
+    4300060: fin_4
+    4300062: fin_1
+    4300064: fin_2
+    4300066: fin_3
+    4300068: fin_4
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
