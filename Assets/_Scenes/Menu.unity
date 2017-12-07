@@ -1490,8 +1490,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1893689119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 665.5, y: 374.5, z: 0}
-  m_LocalScale: {x: 1.66375, y: 1.66375, z: 1.66375}
+  m_LocalPosition: {x: 711, y: 444.5, z: 0}
+  m_LocalScale: {x: 1.7775, y: 1.7775, z: 1.7775}
   m_Children:
   - {fileID: 1842061394}
   - {fileID: 1457384645}
@@ -1667,7 +1667,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: AR Model
+          m_StringArgument: Lobby
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
