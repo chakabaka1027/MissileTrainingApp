@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class MissileManager : MonoBehaviour {
+public class MissileManager : NetworkBehaviour {
 
     string animationName;
     string stage = "Close";
@@ -15,6 +16,7 @@ public class MissileManager : MonoBehaviour {
 
     int panelContentsIndex = 0;
     int currentPanelIndex;
+
 	// Use this for initialization
 	void Start () {
 		if(stage == "Close"){
@@ -27,14 +29,23 @@ public class MissileManager : MonoBehaviour {
             infoPanel.SetActive(false);
         }
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-	}
+    [Command]
+    void CmdReturnButton(){
+        RpcReturnButton();
+    }
+
+    [ClientRpc]
+    public void RpcReturnButton(){
+        StartCoroutine("Return");
+    }
 
     public void ReturnButton(){
-        StartCoroutine("Return");
+        if(!Network.isServer){
+            CmdReturnButton();
+        } else {
+            RpcReturnButton();
+        }
     }
 
     IEnumerator Return(){
@@ -67,13 +78,34 @@ public class MissileManager : MonoBehaviour {
         guts4.gameObject.SetActive(true);
     }
 
-    public void PlayAnimation(string animationName){
+    [Command]
+    void CmdPlayAnimation(string animationName){
+        RpcPlayAnimation(animationName);
+    }
 
+    [ClientRpc]
+    public void RpcPlayAnimation(string animationName){
         GameObject.Find("Missile").GetComponent<Animator>().Play(animationName);
         stage = animationName;
         StopCoroutine("AlterButtons");
         StartCoroutine("AlterButtons");
     }
+
+    public void PlayAnimation(string animationName){
+        if(!Network.isServer){
+            CmdPlayAnimation(animationName);
+        } else {
+            RpcPlayAnimation(animationName);
+        }
+    }
+
+    //public void PlayAnimation(string animationName){
+
+    //    GameObject.Find("Missile").GetComponent<Animator>().Play(animationName);
+    //    stage = animationName;
+    //    StopCoroutine("AlterButtons");
+    //    StartCoroutine("AlterButtons");
+    //}
 
     IEnumerator AlterButtons() {
 		if(stage == "Close"){
@@ -111,33 +143,92 @@ public class MissileManager : MonoBehaviour {
         }
     }
 
-    void UpdateInfoPanel(int componentKey){
+    [Command]
+    void CmdUpdateInfoPanel(int componentKey){
+        RpcUpdateInfoPanel(componentKey);
+    }
+
+    [ClientRpc]
+    public void RpcUpdateInfoPanel(int componentKey){
         panelContentsIndex = 0;
         currentPanelIndex = componentKey;
         infoPanel.transform.Find("Title").GetComponent<Text>().text = components[componentKey].title;
         //draw the test
         infoPanel.transform.Find("Contents").GetComponent<Text>().text = components[componentKey].contents[panelContentsIndex];
 
-        StartCoroutine(infoPanel.transform.Find("Contents").GetComponent<Typing>().TypeIn(components[componentKey].contents[panelContentsIndex]));
+        //StartCoroutine(infoPanel.transform.Find("Contents").GetComponent<Typing>().TypeIn(components[componentKey].contents[panelContentsIndex]));
     }
 
-    public void ChangePanelPage(bool forward){
+    public void UpdateInfoPanel(int componentKey){
+        if(!Network.isServer){
+            CmdUpdateInfoPanel(componentKey);
+        } else {
+            RpcUpdateInfoPanel(componentKey);
+        }
+    }
+
+
+    //void UpdateInfoPanel(int componentKey){
+    //    panelContentsIndex = 0;
+    //    currentPanelIndex = componentKey;
+    //    infoPanel.transform.Find("Title").GetComponent<Text>().text = components[componentKey].title;
+    //    //draw the test
+    //    infoPanel.transform.Find("Contents").GetComponent<Text>().text = components[componentKey].contents[panelContentsIndex];
+
+    //    StartCoroutine(infoPanel.transform.Find("Contents").GetComponent<Typing>().TypeIn(components[componentKey].contents[panelContentsIndex]));
+    //}
+
+    [Command]
+    void CmdChangePanelPage(bool forward){
+        RpcChangePanelPage(forward);
+    }
+
+    [ClientRpc]
+    public void RpcChangePanelPage(bool forward){
         if(forward){
             panelContentsIndex++;
             if(panelContentsIndex > components[currentPanelIndex].contents.Length - 1){
                 panelContentsIndex = 0;
             }
-            //infoPanel.transform.Find("Contents").GetComponent<Text>().text = components[currentPanelIndex].contents[panelContentsIndex];
-            StartCoroutine(infoPanel.transform.Find("Contents").GetComponent<Typing>().TypeIn(components[currentPanelIndex].contents[panelContentsIndex]));
+            infoPanel.transform.Find("Contents").GetComponent<Text>().text = components[currentPanelIndex].contents[panelContentsIndex];
+            //StartCoroutine(infoPanel.transform.Find("Contents").GetComponent<Typing>().TypeIn(components[currentPanelIndex].contents[panelContentsIndex]));
         } else {
             panelContentsIndex--;
             if(panelContentsIndex < 0){
                 panelContentsIndex = components[currentPanelIndex].contents.Length - 1;
             }
-            //infoPanel.transform.Find("Contents").GetComponent<Text>().text = components[currentPanelIndex].contents[panelContentsIndex];
-            StartCoroutine(infoPanel.transform.Find("Contents").GetComponent<Typing>().TypeIn(components[currentPanelIndex].contents[panelContentsIndex]));
+            infoPanel.transform.Find("Contents").GetComponent<Text>().text = components[currentPanelIndex].contents[panelContentsIndex];
+            //StartCoroutine(infoPanel.transform.Find("Contents").GetComponent<Typing>().TypeIn(components[currentPanelIndex].contents[panelContentsIndex]));
         }
     }
+
+    public void ChangePanelPage(bool forward){
+        if(!Network.isServer){
+            CmdChangePanelPage(forward);
+        } else {
+            RpcChangePanelPage(forward);
+        }
+    }
+
+
+
+    //public void ChangePanelPage(bool forward){
+    //    if(forward){
+    //        panelContentsIndex++;
+    //        if(panelContentsIndex > components[currentPanelIndex].contents.Length - 1){
+    //            panelContentsIndex = 0;
+    //        }
+    //        //infoPanel.transform.Find("Contents").GetComponent<Text>().text = components[currentPanelIndex].contents[panelContentsIndex];
+    //        StartCoroutine(infoPanel.transform.Find("Contents").GetComponent<Typing>().TypeIn(components[currentPanelIndex].contents[panelContentsIndex]));
+    //    } else {
+    //        panelContentsIndex--;
+    //        if(panelContentsIndex < 0){
+    //            panelContentsIndex = components[currentPanelIndex].contents.Length - 1;
+    //        }
+    //        //infoPanel.transform.Find("Contents").GetComponent<Text>().text = components[currentPanelIndex].contents[panelContentsIndex];
+    //        StartCoroutine(infoPanel.transform.Find("Contents").GetComponent<Typing>().TypeIn(components[currentPanelIndex].contents[panelContentsIndex]));
+    //    }
+    //}
 
     [System.Serializable]
     public class Components{
