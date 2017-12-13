@@ -4,14 +4,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 
-public class SceneNavigator : MonoBehaviour {
+public class SceneNavigator : MonoBehaviour  {
+
 
     public void LoadNextScene(string sceneName){
 
-        if(GameObject.Find("LobbyManager") != null){
-            GameObject.Find("LobbyManager").GetComponent<NetworkLobbyManager>().StopMatchMaker();
-            GameObject.Find("LobbyManager").GetComponent<NetworkLobbyManager>().StopHost();
+    //if you are loading into a new scene and youve started a multiplayer session, destroy the instance of the session
+        if (GameObject.Find("LobbyManager") != null) {
+            NetworkManager.singleton.StopClient ();
+            NetworkManager.singleton.StopHost ();
+ 
+            NetworkLobbyManager.singleton.StopClient ();
+            NetworkLobbyManager.singleton.StopServer ();
+            Network.Disconnect();
+            NetworkServer.DisconnectAll();
         }
+
         SceneManager.LoadScene(sceneName);
         if(sceneName == "AR Model"){
             FindObjectOfType<LrsCommunicator>().viewType = LrsCommunicator.ViewType.AR;
@@ -21,6 +29,9 @@ public class SceneNavigator : MonoBehaviour {
             FindObjectOfType<LrsCommunicator>().viewType = LrsCommunicator.ViewType.other;
         }
     }
+
+
+
 
     public void CloseApp(){
         Application.Quit();
