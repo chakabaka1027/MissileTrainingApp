@@ -12,14 +12,17 @@ EditorBuildSettings:
     path: Assets/_Scenes/Menu.unity
     guid: 25c05901b4e26f740a5ca4f0f5b58896
   - enabled: 1
-    path: Assets/_Scenes/3D Model Lobby.unity
-    guid: 8b02ed3ebd0f14448b5d4cf2a969f593
+    path: Assets/_Scenes/Lobby.unity
+    guid: ac35839e88af9ae4899fbdfbf7d7f533
+  - enabled: 1
+    path: Assets/_Scenes/3D Model Solo.unity
+    guid: 98e32fe4d665e054f8b416aea88a556a
   - enabled: 1
     path: Assets/_Scenes/3D Model.unity
     guid: b9859703d77dd814e9f08f59898482ef
   - enabled: 1
-    path: Assets/_Scenes/AR Model Lobby.unity
-    guid: ac35839e88af9ae4899fbdfbf7d7f533
+    path: Assets/_Scenes/AR Model Solo.unity
+    guid: 6dd3abfb3d238a949a51e675ffb74488
   - enabled: 1
     path: Assets/_Scenes/AR Model.unity
     guid: a56b9522d185d044eb7bb45b8be73efc

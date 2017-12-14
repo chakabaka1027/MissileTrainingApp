@@ -545,8 +545,6 @@ GameObject:
   m_Component:
   - component: {fileID: 91193609}
   - component: {fileID: 91193610}
-  - component: {fileID: 91193612}
-  - component: {fileID: 91193611}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -588,57 +586,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &91193611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 91193608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1590678366, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Animator: {fileID: 91193610}
-  m_ParameterSendBits: 0
-  param0: 
-  param1: 
-  param2: 
-  param3: 
-  param4: 
-  param5: 
---- !u!114 &91193612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 91193608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 58
-    i1: 170
-    i2: 255
-    i3: 229
-    i4: 50
-    i5: 161
-    i6: 71
-    i7: 116
-    i8: 170
-    i9: 93
-    i10: 246
-    i11: 131
-    i12: 228
-    i13: 163
-    i14: 236
-    i15: 206
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
 --- !u!1 &127433065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,7 +1288,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 829125675}
+      - m_Target: {fileID: 829125677}
         m_MethodName: PlayAnimation
         m_Mode: 5
         m_Arguments:
@@ -2782,7 +2729,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 829125675}
+      - m_Target: {fileID: 829125677}
         m_MethodName: PlayAnimation
         m_Mode: 5
         m_Arguments:
@@ -2916,7 +2863,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 829125675}
+      - m_Target: {fileID: 829125677}
         m_MethodName: PlayAnimation
         m_Mode: 5
         m_Arguments:
@@ -3153,8 +3100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 829125674}
   - component: {fileID: 829125673}
-  - component: {fileID: 829125675}
-  - component: {fileID: 829125676}
+  - component: {fileID: 829125677}
   m_Layer: 5
   m_Name: SceneManager
   m_TagString: Untagged
@@ -3191,7 +3137,7 @@ RectTransform:
   m_AnchoredPosition: {x: 1145.37, y: 30.60114}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &829125675
+--- !u!114 &829125677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -3199,7 +3145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 829125672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5871420220b5f4c82adcb5f415b4ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 76d582cd29c998048be442e362170c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 1665285522}
@@ -3243,38 +3189,6 @@ MonoBehaviour:
       change in rotational attitude (angular orientation relative to some reference
       frame) and translational position (typically latitude, longitude and altitude)
       over a period of time."
---- !u!114 &829125676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 829125672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
 --- !u!1 &856513037
 GameObject:
   m_ObjectHideFlags: 0
@@ -3584,7 +3498,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 829125675}
+      - m_Target: {fileID: 829125677}
         m_MethodName: ReturnButton
         m_Mode: 1
         m_Arguments:
@@ -4196,7 +4110,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 829125675}
+      - m_Target: {fileID: 829125677}
         m_MethodName: ChangePanelPage
         m_Mode: 6
         m_Arguments:
@@ -4374,7 +4288,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1198476239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 380, y: 229.07031, z: 0}
+  m_LocalPosition: {x: 380.00003, y: 228.95323, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1893689123}
@@ -4807,7 +4721,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 829125675}
+      - m_Target: {fileID: 829125677}
         m_MethodName: PlayAnimation
         m_Mode: 5
         m_Arguments:
@@ -5529,7 +5443,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1457384644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -356.5, y: 225.42029, z: 0}
+  m_LocalPosition: {x: -356.5, y: 225.3032, z: 0}
   m_LocalScale: {x: 0.42985722, y: 0.42985722, z: 0.42985722}
   m_Children: []
   m_Father: {fileID: 1893689123}
@@ -5747,7 +5661,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1518195173}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -275.71, y: 225.42041, z: 0}
+  m_LocalPosition: {x: -275.71002, y: 225.30333, z: 0}
   m_LocalScale: {x: 0.42985722, y: 0.42985722, z: 0.42985722}
   m_Children: []
   m_Father: {fileID: 1893689123}
@@ -6290,7 +6204,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 829125675}
+      - m_Target: {fileID: 829125677}
         m_MethodName: PlayAnimation
         m_Mode: 5
         m_Arguments:
@@ -6821,8 +6735,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1893689119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 711, y: 444.5, z: 0}
-  m_LocalScale: {x: 1.7775, y: 1.7775, z: 1.7775}
+  m_LocalPosition: {x: 534.5, y: 334, z: 0}
+  m_LocalScale: {x: 1.33625, y: 1.33625, z: 1.33625}
   m_Children:
   - {fileID: 1457384645}
   - {fileID: 1518195174}
@@ -7212,7 +7126,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 829125675}
+      - m_Target: {fileID: 829125677}
         m_MethodName: ChangePanelPage
         m_Mode: 6
         m_Arguments:
@@ -7549,7 +7463,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 829125675}
+      - m_Target: {fileID: 829125677}
         m_MethodName: PlayAnimation
         m_Mode: 5
         m_Arguments:

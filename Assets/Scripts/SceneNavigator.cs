@@ -6,34 +6,71 @@ using UnityEngine.Networking;
 
 public class SceneNavigator : MonoBehaviour  {
 
-
+    
     public void LoadNextScene(string sceneName){
-
-    //if you are loading into a new scene and youve started a multiplayer session, destroy the instance of the session
-        if (GameObject.Find("LobbyManager") != null) {
-            NetworkManager.singleton.StopClient ();
-            NetworkManager.singleton.StopHost ();
- 
-            NetworkLobbyManager.singleton.StopClient ();
-            NetworkLobbyManager.singleton.StopServer ();
-            Network.Disconnect();
-            NetworkServer.DisconnectAll();
+        if(sceneName == "Sign In" && FindObjectOfType<LrsCommunicator>() != null){
+            FindObjectOfType<LrsCommunicator>().ReportLogOut();
+            Destroy(FindObjectOfType<LrsCommunicator>().gameObject);
         }
-
         SceneManager.LoadScene(sceneName);
-        if(sceneName == "AR Model"){
+    }
+
+    public void AssignViewType(string viewType){
+        if (viewType == "AR Model") {
             FindObjectOfType<LrsCommunicator>().viewType = LrsCommunicator.ViewType.AR;
-        } else if(sceneName == "3D Model"){
+        } else if (viewType == "3D Model") {
             FindObjectOfType<LrsCommunicator>().viewType = LrsCommunicator.ViewType.nonAR;
         } else {
             FindObjectOfType<LrsCommunicator>().viewType = LrsCommunicator.ViewType.other;
+        }    
+    }
+
+    public void ReturnHome(string sceneName){
+        if (GameObject.Find("LobbyManager") != null) {
+            //if(!Network.isServer){
+                Debug.Log("server disconnect");
+                NetworkManager.singleton.StopClient ();
+                NetworkManager.singleton.StopHost ();
+ 
+                NetworkLobbyManager.singleton.StopClient ();
+                NetworkLobbyManager.singleton.StopServer ();
+                NetworkServer.DisconnectAll();
+                //NetworkServer.SetAllClientsNotReady();
+
+            //} else if(!Network.isClient){
+            //    Debug.Log("client disconnect");
+            //    NetworkManager.singleton.StopClient ();
+            //    //NetworkManager.singleton.StopHost ();
+ 
+            //    NetworkLobbyManager.singleton.StopClient ();
+            //    //NetworkLobbyManager.singleton.StopServer ();
+            //    Network.Disconnect();
+            //}
+
+            if(GameObject.Find("LobbyManager") != null){
+                Destroy(GameObject.Find("LobbyManager")); 
+            }
+
+        }
+
+        SceneManager.LoadScene(sceneName);
+       
+        FindObjectOfType<LrsCommunicator>().viewType = LrsCommunicator.ViewType.other;
+        
+
+    }
+
+    public void LoadSoloGame(string sceneName){
+        SceneManager.LoadScene(sceneName);
+
+        if(GameObject.Find("LobbyManager") != null){
+            Destroy(GameObject.Find("LobbyManager")); 
         }
     }
 
-
-
-
     public void CloseApp(){
+        FindObjectOfType<LrsCommunicator>().ReportLogOut();
+
         Application.Quit();
     }
 }

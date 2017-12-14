@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TinCan;
 using TinCan.LRSResponses;
 
@@ -14,6 +15,7 @@ using System.Net.Security;
 public class LrsCommunicator : MonoBehaviour {
 
     [Header("Data Being Logged")]
+
     public string playerName = "";
     public string email = "";
     
@@ -35,11 +37,21 @@ public class LrsCommunicator : MonoBehaviour {
     }
 
     private void Update() {
-        if(viewType == ViewType.AR){
+        //if(viewType == ViewType.AR){
+        //    arTimer += Time.deltaTime;
+        //}
+
+        //if(viewType == ViewType.nonAR){
+        //    nonArTimer += Time.deltaTime;
+        //}
+
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if(currentScene == "AR Model" || currentScene == "AR Model Solo"){
             arTimer += Time.deltaTime;
         }
 
-        if(viewType == ViewType.nonAR){
+        if(currentScene == "3D Model" || currentScene == "3D Model Solo"){
             nonArTimer += Time.deltaTime;
         }
     }
@@ -311,6 +323,64 @@ public class LrsCommunicator : MonoBehaviour {
         else {
             // Do something with failure
             Debug.Log("Failed To Log In");
+            lrsError = true;
+        }    
+    }
+
+        public void ReportLogOut(){        
+        
+        ServicePointManager.ServerCertificateValidationCallback = MyRemoteCertificateValidationCallback;
+
+		var lrs = new RemoteLRS(
+            "https://cloud.scorm.com/tc/B0MLOLLYBS/sandbox/",
+            "alex.cha@mtsi-va.com",
+            "Abcd1234"
+        );
+        
+        var actor = new Agent();
+        //actor.mbox = "mailto:info@tincanapi.com";
+        actor.mbox = "mailto:" + email;
+        actor.name = playerName;
+
+        var verb = new Verb();
+        verb.id = new Uri ("https://brindlewaye.com/xAPITerms/verbs/loggedout/");
+        verb.display = new LanguageMap();
+        verb.display.Add("en-US", "Logged Out Of");
+
+        var activity = new Activity();
+        //id
+        activity.id = "http://activitystrea.ms/schema/1.0/application";
+        
+        //definition
+        activity.definition = new ActivityDefinition();
+            
+            //definition name
+        activity.definition.name = new LanguageMap();
+        activity.definition.name.Add("en-US", "Missile Training App");
+
+            //definition description
+        activity.definition.description = new LanguageMap();
+        activity.definition.description.Add("en-US", "MTSI's Missile Training Application");
+
+            //definition type
+        activity.definition.type = new Uri("http://activitystrea.ms/schema/1.0/application");
+        
+        //declaring the full statement
+        var statement = new Statement();
+        statement.actor = actor;
+        statement.verb = verb;
+        statement.target = activity;
+
+
+        StatementLRSResponse lrsResponse = lrs.SaveStatement(statement);
+        if (lrsResponse.success){
+            // Updated 'statement' here, now with id
+            Debug.Log("Log Out Reported: " + lrsResponse.content.id);
+            lrsError = false;
+        }
+        else {
+            // Do something with failure
+            Debug.Log("Failed To Log Out");
             lrsError = true;
         }    
     }
